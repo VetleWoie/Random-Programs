@@ -25,4 +25,4 @@ class Server():
             data = self.conn.recv(1024)
             if not self.data:
                 break
-            self.data = data
+            self.data = data.decode()
