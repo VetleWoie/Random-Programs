@@ -23,7 +23,6 @@ class Server():
     def recieve(self):
         while True:
             data = self.conn.recv(1024)
-            if not self.data:
+            if not data:
                 break
-            print(data)
             self.data = data.decode()
