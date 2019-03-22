@@ -1,11 +1,10 @@
-import socket
+from ServerClient import Client
 
-HOST = '127.0.0.1'  # The server's hostname or IP address
-PORT = 65432        # The port used by the server
+HOST = '192.168.1.165'  # The server's hostname or IP address
+PORT = 6000        # The port used by the server
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.connect((HOST, PORT))
-    s.sendall(b'Hello, world')
-    data = s.recv(1024)
+client = Client(HOST,PORT)
+client.connect()
+client.send("You're getting good at this!")
 
-print('Received', repr(data))
+
