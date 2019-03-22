@@ -25,5 +25,5 @@ class Server():
             data = self.conn.recv(1024)
             if not self.data:
                 break
-            print(data.decode())
+            print(data)
             self.data = data.decode()
