@@ -22,7 +22,7 @@ class Server():
     
     def recieve(self):
         while True:
-            self.data = self.conn.recv(1024)
+            data = self.conn.recv(1024)
             if not self.data:
                 break
-            print(self.data)
+            self.data = data
