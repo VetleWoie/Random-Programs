@@ -25,3 +25,4 @@ class Server():
             self.data = self.conn.recv(1024)
             if not self.data:
                 break
+            print(self.data)
