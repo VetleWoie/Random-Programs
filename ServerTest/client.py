@@ -5,6 +5,6 @@ PORT = 6000        # The port used by the server
 
 client = Client(HOST,PORT)
 client.connect()
-client.send("You're getting good at this!")
+client.sendFile("test.txt")
 
 
