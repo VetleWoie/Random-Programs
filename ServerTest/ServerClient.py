@@ -19,8 +19,6 @@ class Client():
             return data.decode()
     
     def sendFile(self, filename):
-        self.send(filename)
-        self.recieve()
         f = open(filename,'rb')
         l = f.read(1024)
         while(l):
@@ -48,10 +46,7 @@ class Server():
     def send(self,string):
         self.conn.sendall(string.encode())
 
-    def recieveFile(self):
-        self.recieve()
-        filename = self.data
-        self.conn.sendall("1")
+    def recieveFile(self,filename):
         f = open(filename,'wb')
         while True:
             data = self.conn.recv(1024)
