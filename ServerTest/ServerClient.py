@@ -10,6 +10,16 @@ class Client():
 
     def connect(self):
         self.socket.connect(self.connection)
+    
+    def sendFile(self, filename):
+        self.send(filename)
+        f = open(filename,'rb')
+        l = f.read(1024)
+        while(l):
+            self.socket.sendall(l)
+            l = f.read(1024)
+        f.close()
+
 
 class Server():
     def __init__(self,host,port):
@@ -26,3 +36,13 @@ class Server():
             if not data:
                 break
             self.data = data.decode()
+
+    def recieveFile(self):
+        self.recieve()
+        filename = self.data
+        f = open(filename,'wb')
+        while True:
+            data = self.conn.recv(1024)
+            if not data:
+                break
+            f.write(data)
